@@ -1,6 +1,6 @@
-package cn.dave12138.maid_chunk_loader.maid;
+package io.github.thelittlestone.maid_chunk_loader.maid;
 
-import cn.dave12138.maid_chunk_loader.items.ItemReg;
+import io.github.thelittlestone.maid_chunk_loader.items.ItemReg;
 import com.github.tartaricacid.touhoulittlemaid.api.ILittleMaid;
 import com.github.tartaricacid.touhoulittlemaid.api.LittleMaidExtension;
 import com.github.tartaricacid.touhoulittlemaid.item.bauble.BaubleManager;

@@ -1,7 +1,7 @@
-package cn.dave12138.maid_chunk_loader.items;
+package io.github.thelittlestone.maid_chunk_loader.items;
 
-import cn.dave12138.maid_chunk_loader.Config;
-import cn.dave12138.maid_chunk_loader.tickets.TicketManager;
+import io.github.thelittlestone.maid_chunk_loader.Config;
+import io.github.thelittlestone.maid_chunk_loader.tickets.TicketManager;
 import com.github.tartaricacid.touhoulittlemaid.api.bauble.IMaidBauble;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import net.minecraft.ChatFormatting;

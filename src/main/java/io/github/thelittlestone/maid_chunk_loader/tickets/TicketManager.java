@@ -1,4 +1,4 @@
-package cn.dave12138.maid_chunk_loader.tickets;
+package io.github.thelittlestone.maid_chunk_loader.tickets;
 
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
 import net.minecraft.server.level.TicketType;

@@ -1,6 +1,6 @@
-package cn.dave12138.maid_chunk_loader;
+package io.github.thelittlestone.maid_chunk_loader;
 
-import cn.dave12138.maid_chunk_loader.items.ItemReg;
+import io.github.thelittlestone.maid_chunk_loader.items.ItemReg;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;

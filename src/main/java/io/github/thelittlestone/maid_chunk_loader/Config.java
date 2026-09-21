@@ -1,4 +1,4 @@
-package cn.dave12138.maid_chunk_loader;
+package io.github.thelittlestone.maid_chunk_loader;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

@@ -1,6 +1,6 @@
-package cn.dave12138.maid_chunk_loader.items;
+package io.github.thelittlestone.maid_chunk_loader.items;
 
-import cn.dave12138.maid_chunk_loader.MaidChunkLoaderMod;
+import io.github.thelittlestone.maid_chunk_loader.MaidChunkLoaderMod;
 import com.github.tartaricacid.touhoulittlemaid.init.InitCreativeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
