@@ -1,5 +1,7 @@
 # Maid Chunk Loader
 
+[中文](README.md) | [English](README_en.md)
+
 Forge 1.20.1 模组：给车万女仆装备「区块加载饰品」后，女仆周围的区块会保持加载。
 
 本仓库是 [MaidChunkLoader-1.21](https://github.com/Dave-12138/MaidChunkLoader) 的1.20移植版本
@@ -34,7 +36,7 @@ Forge 1.20.1 模组：给车万女仆装备「区块加载饰品」后，女仆�
 
 加载范围由配置项 `load_radius` 控制，文件位于 `config/maid_chunk_loader-common.toml`
 
-**`load_radius` 是强加载（实体 tick）的切比雪夫半径**，弱加载半径要在此基础之上加二**
+**`load_radius` 是强加载（实体 tick）的切比雪夫半径**，弱加载半径要在此基础之上加二。
 
 默认为 **2**：
 
