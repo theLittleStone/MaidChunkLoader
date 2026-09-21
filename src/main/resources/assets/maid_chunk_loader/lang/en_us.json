@@ -1,0 +1,4 @@
+{
+  "item.maid_chunk_loader.maid_chunk_loader_bauble": "§6Chunk Loading Bauble",
+  "tooltip.maid_chunk_loader.maid_chunk_loader_bauble.desc": "(Will not work if the maid itself is unloaded)\nYou know, in newer versions, flying pearls can load chunks."
+}
