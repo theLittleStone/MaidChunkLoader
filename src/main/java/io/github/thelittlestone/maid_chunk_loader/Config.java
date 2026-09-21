@@ -16,15 +16,25 @@ public class Config {
     static {
         BUILDER = new ForgeConfigSpec.Builder();
         BUILDER.push("Chunk Loader");
-        LOAD_RADIUS = BUILDER.defineInRange("load_radius", 8, 0, 64);
+        LOAD_RADIUS = BUILDER.comment(
+                "Chebyshev radius of STRONG (entity-ticking) chunks, not the weakly loaded outer ring.",
+                "Internal vanilla ticket radius is load_radius + 2.",
+                "Default 2 = 5x5 strong, 7x7 block-tick, 9x9 weakly loaded."
+        ).defineInRange("load_radius", 2, 0, 64);
         BUILDER.pop();
         SPEC = BUILDER.build();
     }
 
-    private static int radius = 3;
+    private static int radius = 2;
 
+    /** Strong-load Chebyshev radius from config. */
     public static int getRadius() {
         return radius;
+    }
+
+    /** Vanilla addRegionTicket radius: strong ring plus the weak outer fringe. */
+    public static int getTicketRadius() {
+        return radius + 2;
     }
 
     private static void renewConfig() {

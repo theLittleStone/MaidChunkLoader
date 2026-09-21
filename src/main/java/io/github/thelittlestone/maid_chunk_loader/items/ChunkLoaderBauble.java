@@ -1,9 +1,8 @@
 package io.github.thelittlestone.maid_chunk_loader.items;
 
-import io.github.thelittlestone.maid_chunk_loader.Config;
-import io.github.thelittlestone.maid_chunk_loader.tickets.TicketManager;
 import com.github.tartaricacid.touhoulittlemaid.api.bauble.IMaidBauble;
 import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
+import io.github.thelittlestone.maid_chunk_loader.tickets.ChunkLoaderSavedData;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -29,16 +28,27 @@ public class ChunkLoaderBauble extends Item implements IMaidBauble {
     }
 
     @Override
+    public void onPutOn(EntityMaid maid, ItemStack baubleItem) {
+        remember(maid);
+    }
+
+    @Override
+    public void onTakeOff(EntityMaid maid, ItemStack baubleItem) {
+        if (maid.level() instanceof ServerLevel level) {
+            ChunkLoaderSavedData.get(level).remove(maid.getUUID());
+        }
+    }
+
+    @Override
     public void onTick(EntityMaid maid, ItemStack baubleItem) {
-        // Ticket lifespan is 300 ticks; refresh every second so the load area follows the maid.
-        if (maid.level() instanceof ServerLevel serverLevel && maid.tickCount % 20 == 0) {
-            serverLevel.getChunkSource().addRegionTicket(
-                    TicketManager.getMaidTicket(),
-                    maid.chunkPosition(),
-                    Config.getRadius(),
-                    maid,
-                    true
-            );
+        if (maid.tickCount % 20 == 0) {
+            remember(maid);
+        }
+    }
+
+    private static void remember(EntityMaid maid) {
+        if (maid.level() instanceof ServerLevel level) {
+            ChunkLoaderSavedData.get(level).put(maid.getUUID(), maid.chunkPosition());
         }
     }
 }

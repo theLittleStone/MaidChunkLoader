@@ -1,16 +1,19 @@
 package io.github.thelittlestone.maid_chunk_loader.tickets;
 
-import com.github.tartaricacid.touhoulittlemaid.entity.passive.EntityMaid;
+import io.github.thelittlestone.maid_chunk_loader.Config;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.TicketType;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.ChunkPos;
 
-import java.util.Comparator;
+import java.util.UUID;
 
 public class TicketManager {
-    private static final Comparator<EntityMaid> CP = Comparator.comparing(Entity::getUUID);
-    private static final TicketType<EntityMaid> maidTicket = TicketType.create("maid", CP, 300);
+    /** 300-tick timeout; same type+key refresh resets createdTick. */
+    private static final TicketType<UUID> MAID_TICKET =
+            TicketType.create("maid_chunk_loader", UUID::compareTo, 300);
 
-    public static TicketType<EntityMaid> getMaidTicket() {
-        return maidTicket;
+    public static void renew(ServerLevel level, ChunkPos pos, UUID maidId) {
+        level.getChunkSource().addRegionTicket(
+                MAID_TICKET, pos, Config.getTicketRadius(), maidId, true);
     }
 }
